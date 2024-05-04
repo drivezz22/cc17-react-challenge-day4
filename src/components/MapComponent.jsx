@@ -1,11 +1,16 @@
+import { icon } from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 
 export default function MapComponent(props) {
   const { selectedCountry } = props;
 
+  var markerIcon = icon({
+    iconUrl: "./src/assets/location.svg",
+    iconSize: [30, 30],
+  });
   const MapMarker = () => {
     return (
-      <Marker position={selectedCountry.latlng}>
+      <Marker position={selectedCountry.latlng} icon={markerIcon}>
         <Popup>{selectedCountry.name.common}</Popup>
       </Marker>
     );
